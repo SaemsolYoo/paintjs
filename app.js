@@ -12,7 +12,7 @@ function onMouseMove(event) {
 }
 
 function onMouseDown(event) {
-  painting = ture;
+  painting = true;
 }
 
 function onMouseUp(event) {
