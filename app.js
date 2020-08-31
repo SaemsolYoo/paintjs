@@ -2,6 +2,7 @@ const canvas = document.getElementById("jsCanvas");
 const ctx = canvas.getContext("2d");
 const colors = document.getElementsByClassName("jsColor");
 
+const range = document.getElementById("jsRange");
 const palette = document.getElementById("jsPalette");
 
 canvas.width = 500;
@@ -42,7 +43,6 @@ function onMouseDown(event) {
 
 function handleColorClick(event) {
   const color = event.target.style.backgroundColor;
-  console.log(color);
   ctx.strokeStyle = color;
 }
 
@@ -70,3 +70,11 @@ function selectColor(event) {
 }
 
 palette.addEventListener("change", selectColor);
+
+function handleBurshSize(event) {
+  //const brushSize = range.value;
+  const brushSize = event.target.value;
+  ctx.lineWidth = brushSize;
+}
+
+range.addEventListener("change", handleBurshSize);
