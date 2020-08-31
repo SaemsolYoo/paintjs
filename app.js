@@ -1,5 +1,8 @@
 const canvas = document.getElementById("jsCanvas");
 const ctx = canvas.getContext("2d");
+const colors = document.getElementsByClassName("jsColor");
+
+const palette = document.getElementById("jsPalette");
 
 canvas.width = 500;
 canvas.height = 500;
@@ -31,8 +34,16 @@ function onMouseMove(event) {
   }
 }
 
+/*
 function onMouseDown(event) {
   painting = true;
+} 더이상 안쓸거다. 그냥 마우스무브 사용
+*/
+
+function handleColorClick(event) {
+  const color = event.target.style.backgroundColor;
+  console.log(color);
+  ctx.strokeStyle = color;
 }
 
 // function onMouseLeave(event) {
@@ -45,3 +56,17 @@ if (canvas) {
   canvas.addEventListener("mouseup", stopPainting);
   canvas.addEventListener("mouseleave", stopPainting);
 }
+
+Array.from(colors).forEach((color) =>
+  color.addEventListener("click", handleColorClick)
+);
+
+//내가 추가한 팔레트
+
+function selectColor(event) {
+  const chosenColor = palette.value;
+  //console.log(palette.value);
+  ctx.strokeStyle = chosenColor;
+}
+
+palette.addEventListener("change", selectColor);

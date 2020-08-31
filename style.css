@@ -51,6 +51,7 @@ body {
 
 .controls .controls__colors {
   display: flex;
+  align-items: center;
 }
 
 .controls__colors .controls__color {
@@ -63,4 +64,13 @@ body {
 
 .controls .controls__range {
   margin-bottom: 20px;
+}
+
+.palette {
+  all: unset;
+  cursor: pointer;
+  border: none;
+  width: 50px;
+  height: 30px;
+  margin-left: 10px;
 }
